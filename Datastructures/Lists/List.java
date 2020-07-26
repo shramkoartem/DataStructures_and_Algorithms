@@ -15,10 +15,18 @@ class Pos {
 
 public class List extends Pos {
 
-    //public List l = new List();
+    private List l = new List();
 
     public Pos front() {
         return this;
+    }
+
+    public boolean eol(Pos p) {
+        return p.succ == null;
+    }
+
+    public boolean isEmpty() {
+        return this.succ == null && this.value == null && this.pred == null;
     }
 
     public List insert(Pos p, Elem e){
@@ -44,14 +52,14 @@ public class List extends Pos {
             q.pred = p;
             q.succ = null;
             p.succ = q;
-            pred = q;
+            p.pred = q;
         }
         return this;
     }
-
+/*
     public List concat(List l2){
         Pos p, q;
-        if (this.isempty()) return l2;
+        if (this.isEmpty()) return l2;
         else if (l2.isEmpty()) return this;
         else {
             p = this.pred;
@@ -63,12 +71,12 @@ public class List extends Pos {
             return this;
         }
     }
-
+*/
     public Pos find(ElemTest test) {
         Pos p = this;
         while (!eol(p))
         {
-            p = next(p);
+            p = p.succ;
             if (test.check(p.value)) return p;
         }
         return null;
@@ -83,7 +91,7 @@ public class List extends Pos {
 
     public static void main(String[] args){
         List l1 = new List();
-        p = l1.front();
+        Pos p = l1.front();
         l1.insert(p, 26);
     }
 }
