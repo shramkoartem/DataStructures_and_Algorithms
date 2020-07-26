@@ -1,11 +1,11 @@
-
+import java.lang.*;
 
 interface Elem {
     String toString();
 }
 
 interface ElemTest {
-    boolean check(Elem l)
+    boolean check(Elem l);
 }
 
 class Pos {
@@ -15,7 +15,7 @@ class Pos {
 
 public class List extends Pos {
 
-    List l = new List();
+    //public List l = new List();
 
     public Pos front() {
         return this;
@@ -34,7 +34,7 @@ public class List extends Pos {
 
         Pos q = new Pos();
         q.value = e;
-        if(!(eol(p) || isempty())){
+        if(!(eol(p) || isEmpty())){
             q.pred = p;
             q.pred = p.succ;
             p.succ.pred = q;
@@ -52,7 +52,7 @@ public class List extends Pos {
     public List concat(List l2){
         Pos p, q;
         if (this.isempty()) return l2;
-        else if (l2.isempty()) return this;
+        else if (l2.isEmpty()) return this;
         else {
             p = this.pred;
             q = l2.next(l2.front());
@@ -69,7 +69,7 @@ public class List extends Pos {
         while (!eol(p))
         {
             p = next(p);
-            if (test.check(p.value)) return p
+            if (test.check(p.value)) return p;
         }
         return null;
     }
@@ -79,5 +79,11 @@ public class List extends Pos {
         q.succ = p.succ;
         p.succ.pred = q;
         return this;
+    }
+
+    public static void main(String[] args){
+        List l1 = new List();
+        p = l1.front();
+        l1.insert(p, 26);
     }
 }
