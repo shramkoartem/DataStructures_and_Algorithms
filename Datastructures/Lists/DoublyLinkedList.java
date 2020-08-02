@@ -1,6 +1,9 @@
 
 
 public class DoublyLinkedList <T> implements Iterable <T> {
+    /***
+     * [head]<--->[p:value, pred, succ]<--->[q=p.succ:value, pred, succ]<---...
+     */
 
     private int size = 0;
     private Pos <T> head = null;
