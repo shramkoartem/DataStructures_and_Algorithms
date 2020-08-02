@@ -1,6 +1,5 @@
 package com.shramkoartem.datastructures.lists;
 
-import java.util.Iterator;
 
 public class SinglyLinkedList<T> {
 
