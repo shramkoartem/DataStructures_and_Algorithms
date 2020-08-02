@@ -2,7 +2,7 @@ package com.shramkoartem.datastructures.lists;
 
 import java.util.Iterator;
 
-public class SinglyLinkedList<T> implements Iterable <T> {
+public class SinglyLinkedList<T> {
 
     // [head: T value]--->[Pos 1: <T>]--->[Pos 2: <T>]--->...
 
@@ -134,34 +134,6 @@ public class SinglyLinkedList<T> implements Iterable <T> {
             p = p.succ;
         }
         System.out.println("]");
-    }
-
-
-
-    @Override public java.util.Iterator <T> iterator() {
-        return new java.util.Iterator <T> () {
-            private Pos<T> p = head;
-            @Override public boolean hasNext() {
-                return p != null;
-            }
-            @Override public T next() {
-                T value = p.value;
-                p = p.succ;
-                return value;
-            }
-        };
-    }
-
-    @Override public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
-        Pos<T> p = head;
-        while(p != null) {
-            sb.append(p.value + ", ");
-            p = p.succ;
-        }
-        sb.append(" ]");
-        return sb.toString();
     }
 
 
