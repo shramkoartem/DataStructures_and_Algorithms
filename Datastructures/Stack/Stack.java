@@ -62,8 +62,14 @@ public class Stack <T> {
         return n;
     }
 
+    // Check if stack is empty, O(1)
+    public boolean isEmpty(){
+        return this.head == null;
+    }
+
     public static void main(String[] args){
         Stack stack = new Stack();
+        System.out.println("Stack is empty: " + stack.isEmpty());
         stack.printStack();
         stack.push(5);
         stack.printStack();
@@ -74,6 +80,7 @@ public class Stack <T> {
         stack.pop();
         stack.pop();
         stack.printStack();
+        System.out.println("Stack is empty: " + stack.isEmpty());
         System.out.println("Stack size: " + stack.size());
     }
 }
