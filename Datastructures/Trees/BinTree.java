@@ -126,6 +126,54 @@ public class BinTree {
         root = deleteRecursive(root, value);
     }
 
+    /* Traversals */
+    /* Deep-first search, in order */
+    public void deepFirstInOrder(Node node){
+        if (node != null){
+            deepFirstInOrder(node.left);
+            System.out.print(node.value + " ");
+            deepFirstInOrder(node.right);
+        }
+    }
+
+    /* Deep-first search, pre-order */
+    public void deepFirstPreOrder(Node node){
+        if (node != null){
+            System.out.print(node.value + " ");
+            deepFirstPreOrder(node.left);
+            deepFirstPreOrder(node.right);
+        }
+    }
+
+    /* Deep-first search, post-order */
+    public void deepFirstPostOrder(Node node){
+        if (node != null){
+            deepFirstPostOrder(node.left);
+            deepFirstPostOrder(node.right);
+            System.out.print(node.value + " ");
+        }
+    }
+
+    public void deepFirstTraverse(String method){
+        System.out.print("[ ");
+        if (method == "pre"){
+            deepFirstPreOrder(root);
+            System.out.println("]");
+
+        } else if(method == "in"){
+            deepFirstInOrder(root);
+            System.out.println("]");
+
+        } else if(method == "post"){
+            deepFirstPostOrder(root);
+            System.out.println("]");
+
+        } else {
+            throw new RuntimeException("Allowed methods: pre, in, post.");
+        }
+    }
+
+
 
     public static void main(String[] args){
         BinTree bt = new BinTree();
@@ -140,6 +188,11 @@ public class BinTree {
 
         bt.delete(3);
         System.out.println(bt.containsValue(3));
+
+
+        bt.deepFirstTraverse("in");
+        bt.deepFirstTraverse("pre");
+        bt.deepFirstTraverse("post");
 
     }
 
