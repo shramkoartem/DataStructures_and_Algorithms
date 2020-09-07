@@ -1,6 +1,8 @@
 
 public class MergeSort{
 
+    // avg time = O( n log(n) )
+
     // Merges two sub arrays of arr[]
     // First sub array of size [l..m]
     // Second sub array of size [m+1..r]
